@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/feedback.css">
+  <title>Course Feedback | Sphinx Student Feedback Portal</title>
+</head>
+<body data-page="feedback">
+  <header id="site-header"></header>
+  <section class="page-banner">
+    <div class="container">
+      <h1>Course feedback</h1>
+      <p>Rate your experience honestly. Your feedback helps improve teaching and learning.</p>
+    </div>
+  </section>
+
+  <main class="container section form-layout">
+    <form id="feedback-form" class="card form-card" novalidate>
+      <h2><i class="fa-solid fa-book-open"></i> Course</h2>
+      <div class="field">
+        <label for="course-select">Course <span class="req">*</span></label>
+        <select id="course-select"><option value="">Select a course</option></select>
+        <p class="field-error" id="err-course"></p>
+      </div>
+      <div class="course-summary" id="course-summary"></div>
+
+      <h2><i class="fa-solid fa-user"></i> About you</h2>
+      <div class="two-col">
+        <div class="field"><label for="studentName">Student name <span class="optional">(optional)</span></label>
+          <input type="text" id="studentName" autocomplete="name" placeholder="Your name"></div>
+        <div class="field"><label for="studentId">Student ID <span class="optional">(optional)</span></label>
+          <input type="text" id="studentId" placeholder="e.g. 12345"></div>
+      </div>
+      <label class="check"><input type="checkbox" id="isAnonymous"><span>Submit anonymously. Your name and ID will not be sent.</span></label>
+
+      <h2><i class="fa-solid fa-star"></i> Your ratings</h2>
+      <div id="rating-groups"></div>
+
+      <h2><i class="fa-solid fa-comments"></i> Your comments</h2>
+      <div class="field"><label for="likedMost">What did you like most about this course?</label>
+        <textarea id="likedMost" rows="3" maxlength="1000"></textarea></div>
+      <div class="field"><label for="difficulties">What difficulties did you face?</label>
+        <textarea id="difficulties" rows="3" maxlength="1000"></textarea></div>
+      <div class="field"><label for="suggestions">What improvements would you suggest?</label>
+        <textarea id="suggestions" rows="3" maxlength="1000"></textarea></div>
+
+      <div id="form-alert" class="alert" role="alert" hidden></div>
+      <div class="form-actions">
+        <a class="btn btn-ghost" href="courses.html"><i class="fa-solid fa-arrow-left"></i> Back to Courses</a>
+        <button type="submit" class="btn btn-primary" id="submit-btn"><i class="fa-solid fa-paper-plane"></i> <span>Submit Feedback</span></button>
+      </div>
+    </form>
+
+    <section id="success-panel" class="card success-panel" hidden>
+      <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+      <h2>Thank you for your feedback!</h2>
+      <p>Your evaluation was submitted successfully.</p>
+      <div class="form-actions center">
+        <a class="btn btn-ghost" href="courses.html"><i class="fa-solid fa-arrow-left"></i> Back to Courses</a>
+        <button type="button" class="btn btn-primary" id="another-btn"><i class="fa-solid fa-rotate-right"></i> Rate another course</button>
+      </div>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/feedback.js"></script>
+</body>
+</html>

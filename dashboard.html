@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <title>Dashboard | Sphinx Student Feedback Portal</title>
+</head>
+<body data-page="dashboard">
+  <header id="site-header"></header>
+  <section class="page-banner">
+    <div class="container">
+      <h1>Feedback dashboard</h1>
+      <p>Overview of student evaluations across courses.</p>
+    </div>
+  </section>
+
+  <main class="container section">
+    <p class="demo-note"><i class="fa-solid fa-triangle-exclamation"></i> Demonstration interface: this dashboard has no authentication yet and must be protected before real-world use.</p>
+
+    <div id="dash-state" class="state-box"></div>
+
+    <div id="dash-content" hidden>
+      <div class="stats-grid">
+        <div class="card stat"><i class="fa-solid fa-inbox"></i><span class="stat-label">Total submissions</span><strong id="stat-total">0</strong></div>
+        <div class="card stat"><i class="fa-solid fa-star"></i><span class="stat-label">Overall average rating</span><strong id="stat-average">0</strong></div>
+        <div class="card stat"><i class="fa-solid fa-book-open"></i><span class="stat-label">Courses evaluated</span><strong id="stat-courses">0</strong></div>
+      </div>
+
+      <div class="charts-grid">
+        <div class="card"><h2><i class="fa-solid fa-chart-column"></i> Average rating per course</h2><div class="chart-box"><canvas id="chart-courses"></canvas></div></div>
+        <div class="card"><h2><i class="fa-solid fa-chart-simple"></i> Rating distribution</h2><div class="chart-box"><canvas id="chart-distribution"></canvas></div></div>
+      </div>
+
+      <div class="card">
+        <h2><i class="fa-solid fa-ranking-star"></i> Course comparison</h2>
+        <div id="comparison" class="comparison"></div>
+      </div>
+
+      <div class="card table-card">
+        <div class="table-toolbar">
+          <h2><i class="fa-solid fa-table-list"></i> All feedback</h2>
+          <div class="filter"><label for="course-filter">Filter by course</label>
+            <select id="course-filter"><option value="">All courses</option></select></div>
+        </div>
+        <p class="muted" id="table-count"></p>
+        <div id="table-empty" class="state-box" hidden></div>
+        <div class="table-wrap" id="table-wrap">
+          <table>
+            <thead><tr><th>Course</th><th>Overall</th><th>Teaching</th><th>Content</th><th>Organization</th><th>Student comments</th><th>Student</th><th>Submitted</th></tr></thead>
+            <tbody id="feedback-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
